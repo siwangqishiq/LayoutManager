@@ -17,9 +17,13 @@ public class SyncService extends Service {
 
     @Override
     public void onCreate() {
-        System.out.println("SyncService on create!");
+
         mSyncAdapter = new SyncAdapter(this , true);
         super.onCreate();
+
+        KeepLiveService.start(this);
+
+        System.out.println("SyncService on create!");
     }
 
     @Override

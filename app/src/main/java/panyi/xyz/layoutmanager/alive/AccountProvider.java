@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class AccountProvider extends ContentProvider {
-    public static final String AUTHORITY ="project.test.com.myapplication.account.provide";
+    public static final String AUTHORITY ="panyi.xyz.layoutmanager";
     public static final String CONTENT_URI_BASE = "content://" + AUTHORITY;
     public static final String TABLE_NAME = "data";
     public static final Uri CONTENT_URI = Uri.parse(CONTENT_URI_BASE + "/" +TABLE_NAME);

@@ -5,5 +5,5 @@
     android:allowParallelSyncs="false"
     android:contentAuthority="panyi.xyz.layoutmanager.alive.AccountProvider"
     android:isAlwaysSyncable="true"
-    android:supportsUploading="true"
+    android:supportsUploading="false"
     android:userVisible="true" />

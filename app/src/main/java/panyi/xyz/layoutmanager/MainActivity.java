@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 
 import panyi.xyz.layoutmanager.alive.AccountProvider;
+import panyi.xyz.layoutmanager.alive.GuardJobService;
 import panyi.xyz.layoutmanager.alive.KeepLiveService;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         addAuthAccount();
         KeepLiveService.start(this);
+
+        GuardJobService.startGuardJob(this);
     }
 
     private void addAuthAccount(){
@@ -55,6 +58,6 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle= new Bundle();
         ContentResolver.setIsSyncable(newAccount, AccountProvider.AUTHORITY, 1);
         ContentResolver.setSyncAutomatically(newAccount, AccountProvider.AUTHORITY,true);
-        ContentResolver.addPeriodicSync(newAccount, AccountProvider.AUTHORITY,bundle, 30);    // 间隔时间为30秒
+        ContentResolver.addPeriodicSync(newAccount, AccountProvider.AUTHORITY,bundle, 60);    // 间隔时间为60秒
     }
 }

@@ -10,12 +10,15 @@
     <!-- 存储 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
 
     <!-- 网络相关 -->
@@ -38,7 +41,7 @@
 
         <provider
             android:name="panyi.xyz.layoutmanager.alive.AccountProvider"
-            android:authorities="panyi.xyz.layoutmanager.alive.provider"
+            android:authorities="panyi.xyz.layoutmanager"
             android:exported="false"
             android:syncable="true" />
 
@@ -67,6 +70,9 @@
         </service>
 
         <service android:name=".alive.KeepLiveService" />
+        <service android:name=".alive.GuardJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            />
 
     </application>
 
