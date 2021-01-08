@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 import panyi.xyz.layoutmanager.alive.AccountProvider;
 import panyi.xyz.layoutmanager.alive.GuardJobService;
 import panyi.xyz.layoutmanager.alive.KeepLiveService;
+import panyi.xyz.layoutmanager.layout.MyLayout;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView;
@@ -34,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mRecylerListView = findViewById(R.id.list);
         mRecylerListView.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL , false));
-
-        HttpUtil.sendGet("http://panyi.xyz:1997/sections?pagesize=200", new HttpUtil.NetCallback<SectionData>() {
+        mRecylerListView.setLayoutManager(new MyLayout());
+        HttpUtil.sendGet("http://panyi.xyz:1997/sections?pagesize=30", new HttpUtil.NetCallback<SectionData>() {
             @Override
             public void onSuccess(SectionData data) {
                 mRecylerListView.setAdapter(new ImageAdapter(data));
